@@ -1,0 +1,27 @@
+---
+users_config:
+  groups:
+    - name: "test-util-group"
+      gid: 600
+      system: true
+      state: present
+    - name: "test-admin-group"
+      gid: 11111
+      state: present
+
+  users:
+    - username: test
+      uid: 10001
+      groups: "test-admin-group"
+      primary_group: test-admin-group
+      shell: /bin/bash
+      authorized: yes
+      home: /home/test
+      accept_ssh_pubkeys:
+        - test
+
+  sudoers_rules:
+    - name: "test-admin-group-allow-all"
+      group: "test-admin-group"
+      commands: ALL
+      state: present

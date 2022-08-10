@@ -1,0 +1,44 @@
+---
+- name: Create groups
+  ansible.builtin.group:
+    name: "{{ item.name }}"
+    gid: "{{ item.gid }}"
+    state: present
+  loop: "{{ users_config.groups }}"
+
+- name: Manage sudoers
+  community.general.sudoers:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    commands: "{{ item.commands | default(omit) }}"
+    group: "{{ item.group | default(omit) }}"
+    user: "{{ item.user | default(omit) }}"
+    nopassword: "{{ item.nopasswd | default('yes') }}"
+    runas: "{{ item.runas | default(omit) }}"
+    sudoers_path: "{{ item.sudoers_path | default(omit) }}"
+    validation: required
+  loop: "{{ users_config.sudoers_rules }}"
+  when: users_config.sudoers_rules is defined
+
+- name: Create users
+  ansible.builtin.user:
+    name: "{{ item.username }}"
+    comment: "{{ item.comment | default(omit) }}"
+    groups: "{{ item.groups }}"
+    group: "{{ item.primary_group }}"
+    shell: "{{ item.shell }}"
+    home: "{{ item.home }}"
+    uid: "{{ item.uid }}"
+    state: "{{ item.state | default(omit) }}"
+  loop: "{{ users_config.users }}"
+
+- name: Add authorized keys
+  ansible.posix.authorized_key:
+    user: "{{ item.username }}"
+    key: |
+      {% for key in item.accept_ssh_pubkeys -%}
+      {{ lookup('file', './files/' + key + '.key.pub') }}
+      {% endfor %}
+    exclusive: true
+  loop: "{{ users_config.users }}"
+  when: "item.accept_ssh_pubkeys is defined"

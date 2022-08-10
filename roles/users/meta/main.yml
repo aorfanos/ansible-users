@@ -1,0 +1,20 @@
+galaxy_info:
+  author: Alex Orfanos
+  description: Manage users, groups and sudoers
+  license: license (GPL-2.0-or-later, MIT, etc)
+  min_ansible_version: "2.1"
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+
+  galaxy_tags:
+    - user
+    - server
+    - authorization
+
+dependencies: []
