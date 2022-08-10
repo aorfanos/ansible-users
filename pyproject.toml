@@ -7,7 +7,8 @@ authors = ["Alex Orfanos <me@aorfanos.com>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 molecule-docker = "^2.0.0"
-ansible-core = "^2.13.2"
+pre-commit = "^2.20.0"
+ansible = "^6.2.0"
 
 [tool.poetry.dev-dependencies]
 
