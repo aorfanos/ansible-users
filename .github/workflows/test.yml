@@ -44,4 +44,5 @@ jobs:
 
       - name: Run molecule converge
         run: |
+          source .venv/bin/activate
           molecule converge
