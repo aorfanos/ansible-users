@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "aorfanos.users"
+version = "0.0.1"
+description = "An Ansible collection for user management"
+authors = ["Alex Orfanos <me@aorfanos.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+molecule-docker = "^2.0.0"
+ansible-core = "^2.13.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
