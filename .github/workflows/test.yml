@@ -2,8 +2,12 @@
 name: Molecule Converge
 
 on:
-  - push
-  - pull_request
+  push:
+    paths:
+      - roles/**
+  pull_request:
+    paths:
+      - roles/**
 
 jobs:
   build:
