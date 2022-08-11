@@ -1,7 +1,7 @@
 galaxy_info:
   author: Alex Orfanos
   description: Manage users, groups and sudoers
-  license: license (GPL-2.0-or-later, MIT, etc)
+  license: GPL-2.0-or-later
   min_ansible_version: "2.1"
 
   platforms:

@@ -15,7 +15,6 @@ users_config:
       groups: "test-admin-group"
       primary_group: test-admin-group
       shell: /bin/bash
-      authorized: yes
       home: /home/test
       accept_ssh_pubkeys:
         - test

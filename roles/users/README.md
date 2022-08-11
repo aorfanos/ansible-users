@@ -28,7 +28,7 @@ Example Playbook
          - { role: aorfanos.users }
 ```
 
-Usage: 
+Usage:
 
 ```shell
 ansible-playbook -i inventory users.yml

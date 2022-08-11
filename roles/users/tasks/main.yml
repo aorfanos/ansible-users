@@ -32,7 +32,7 @@
     state: "{{ item.state | default(omit) }}"
   loop: "{{ users_config.users }}"
 
-- name: Add authorized keys
+- name: Add user SSH keys
   ansible.posix.authorized_key:
     user: "{{ item.username }}"
     key: |
