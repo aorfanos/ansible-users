@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Include users"
+    - name: "Include users role"
       ansible.builtin.include_role:
         name: "users"
