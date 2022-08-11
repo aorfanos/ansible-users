@@ -40,5 +40,7 @@
       {{ lookup('file', './files/' + key + '.key.pub') }}
       {% endfor %}
     exclusive: true
+    comment: "{{ item.comment | default(omit) }}"
+    state: "{{ item.state | default('present') }}"
   loop: "{{ users_config.users }}"
   when: "item.accept_ssh_pubkeys is defined"
