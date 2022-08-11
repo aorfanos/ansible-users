@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "aorfanos.users"
+name = "aorfanos.server_utils"
 version = "0.0.1"
-description = "An Ansible collection for user management"
+description = "An Ansible collection for the most common configuration options for VMs/servers."
 authors = ["Alex Orfanos <me@aorfanos.com>"]
 
 [tool.poetry.dependencies]
