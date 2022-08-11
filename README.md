@@ -1,4 +1,6 @@
 [![Molecule Converge](https://github.com/aorfanos/server-utils-config/actions/workflows/test.yml/badge.svg)](https://github.com/aorfanos/ansible-users/actions/workflows/test.yml)
+[![Ansible Lint](https://github.com/aorfanos/server-utils-config/actions/workflows/lint.yml/badge.svg)](https://github.com/aorfanos/server-utils-config/actions/workflows/lint.yml)
+
 # Ansible Collection - aorfanos.server_utils
 
 
