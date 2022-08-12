@@ -17,6 +17,7 @@ jobs:
       matrix:
         role:
           - users
+          - packages
 
     steps:
       - uses: actions/checkout@v2
