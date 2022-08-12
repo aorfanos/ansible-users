@@ -1,0 +1,16 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: ubuntu-2204
+    image: saikolab/ubuntu-2204
+    pre_build_image: true
+  - name: centos
+    image: centos:centos8
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

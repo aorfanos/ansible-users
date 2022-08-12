@@ -1,0 +1,24 @@
+---
+- name: Add repo keys
+  ansible.builtin.apt_key:
+    url: "{{ item }}"
+    state: present
+  loop: "{{ packages.apt.extras.keys }}"
+  when: packages.apt.extras is defined
+
+- name: Setup custom repos
+  ansible.builtin.apt_repository:
+    repo: "{{ item.repo }}"
+    filename: "{{ item.filename | default('') }}"
+    state: "{{ item.state | default('present') }}"
+  loop: "{{ packages.apt.extras.repos }}"
+  when: packages.apt.extras is defined
+
+- name: Install apt packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    update_cache: "{{ item.update_cache | default(true) }}"
+    allow_downgrade: "{{ packages.apt.allow_downgrade | default(false) }}"
+    state: present
+  loop: "{{ packages.apt.packages }}"
+  when: packages.apt.packages is defined
