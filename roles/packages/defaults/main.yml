@@ -5,3 +5,4 @@ packages:
       - htop
       - net-tools
       - git
+      - python3-pip
